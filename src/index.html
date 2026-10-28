@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <div class="layout">
+
+      <section class="panel">
+        <div class="panel-body">
+
+          <label class="dropzone" id="dropzone" for="fileInput">
+            <div class="upload-icon">↑</div>
+            <strong>Adicionar imagem</strong>
+            <span>Arraste uma imagem até aqui<br>ou clique para selecionar um arquivo</span>
+          </label>
+
+          <input id="fileInput" type="file" accept="image/*">
+
+          <div class="preview-wrap" id="previewWrap">
+            <img
+              id="previewImage"
+              class="preview-image"
+              alt="Imagem selecionada"
+            >
+
+            <button
+              class="remove-image"
+              id="removeImage"
+              type="button"
+              aria-label="Remover imagem"
+              title="Remover imagem"
+            >×</button>
+
+            <div id="fileName" class="file-name"></div>
+          </div>
+
+          <div class="control">
+            <div class="control-row">
+              <label for="widthRange">Largura da arte</label>
+              <output id="widthValue">180 caracteres</output>
+            </div>
+
+            <input
+              id="widthRange"
+              type="range"
+              min="60"
+              max="260"
+              step="10"
+              value="180"
+            >
+          </div>
+
+          <button class="primary" id="convertBtn" disabled>
+            Gerar arte ASCII →
+          </button>
+
+        </div>
+      </section>
+
+      <section class="panel output-panel">
+
+        <div class="output-toolbar">
+          <div class="status" id="status">
+            <span class="status-dot"></span>
+            <span id="statusText">Aguardando imagem</span>
+          </div>
+
+          <div class="output-actions">
+            <button class="secondary" id="copyBtn" disabled>
+              Copiar ANSI
+            </button>
+
+            <button class="secondary" id="downloadBtn" disabled>
+              Baixar HTML
+            </button>
+          </div>
+        </div>
+
+        <div class="output-area" id="outputArea">
+
+          <div class="placeholder" id="placeholder">
+            <div class="big"># @ % *</div>
+            <p>A arte ASCII aparecerá aqui após a conversão.</p>
+          </div>
+
+          <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Convertendo imagem...</p>
+            <small>Calculando brilho e aplicando as cores</small>
+          </div>
+
+          <pre id="asciiOutput" aria-label="Arte ASCII colorida"></pre>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
